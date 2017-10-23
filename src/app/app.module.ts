@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { Router } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginModule } from './login/login.module';
 import { SearchModule } from './search/search.module';
 import { ResultModule } from './result/result.module';
 import { AuthGuard } from './auth-guard.guard';
 import { AuthGuardService } from './auth-guard.service';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { AuthGuardService } from './auth-guard.service';
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    LoginModule,
+    AuthModule,
     SearchModule,
     ResultModule
   ],

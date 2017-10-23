@@ -1,2 +1,5 @@
-<input #search type="text" (keyup) = "getAutocomplete(search.value)">
+<input #search type="text" (keyup) = "getAutocomplete(search.value)" (keyup.enter)="searchFun(search.value, '', '', '', '', '', '')">
 <button (click) = "searchFun(search.value, '', '', '', '', '', '')">search</button>
+<ul>
+    <li *ngFor = "let video of videos">{{video | json}}</li>
+</ul>

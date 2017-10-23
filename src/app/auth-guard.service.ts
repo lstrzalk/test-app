@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import { JsonDataService } from './login/json-data.service';
-
+import { JsonDataService } from './auth/json-data.service';
 @Injectable()
 export class AuthGuardService {
 

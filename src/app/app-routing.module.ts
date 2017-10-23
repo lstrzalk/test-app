@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth-guard.guard';
-import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { SearchComponent } from './search/search.component';
 import { ResultComponent } from './result/result.component';
-import { DetailsComponent } from './result/details/details.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoginComponent } from './auth/login/login.component';
+import { PasswordComponent } from './auth/password/password.component';
 
 const appRoutes: Routes = [
     {
@@ -14,8 +15,18 @@ const appRoutes: Routes = [
         pathMatch: 'full'
     },
     {
-      path: 'login',
-      component: LoginComponent,
+      path: 'auth',
+      component: AuthComponent,
+      children: [
+      {
+        path: '',
+        component: LoginComponent,
+        pathMatch: 'full'
+      } ,
+      {
+        path: 'password',
+        component: PasswordComponent
+      }]
     },
     {
       path: 'search',
@@ -25,8 +36,7 @@ const appRoutes: Routes = [
     {
       path: 'result',
       canActivate: [AuthGuard],
-      component: ResultComponent,
-      children: [ { path: 'details', component: DetailsComponent} ]
+      component: ResultComponent
     }
   ];
   @NgModule({
