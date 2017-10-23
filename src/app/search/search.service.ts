@@ -11,12 +11,24 @@ export class SearchService {
 
   constructor(private _http: Http) { }
 
-  search = (keyword) => {
+  search = (keyword, order, publishedAfter, publishedBefore, videoDefinition, videoDimension, videoDuration, videoType) => {
     let params: URLSearchParams = new URLSearchParams();
-    params.set('q', keyword);
-    params.set('part', 'snippet');
-    params.set('maxResults', '20');
-    params.set('key', this.token);
+    params.set('q', keyword); // query - add to filering and check if not empty
+    params.set('part', 'snippet'); // neccessary
+    params.set('maxResults', '50'); // max results per request
+    params.set('key', this.token); // API key
+    params.set('type', 'video'); // type, another events and playlists
+
+    /* Filtering */
+
+    if ( order ) { params.set('order', order); }
+    if ( publishedAfter ) { params.set('publishedAfter', publishedAfter); }
+    if ( publishedBefore ) { params.set('publishedBefore', publishedBefore); }
+    if ( videoDefinition ) { params.set('videoDefinition', videoDefinition); }
+    if ( videoDimension ) { params.set('videoDimension', videoDimension); }
+    if ( videoDuration ) { params.set('videoDuration', videoDuration); }
+    if ( videoType ) { params.set('videoType', videoType); }
+
     return this._http.get(this.baseURL, {
       search: params
     }).map(res => res.json())
