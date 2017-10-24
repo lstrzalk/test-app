@@ -34,7 +34,7 @@ const appRoutes: Routes = [
       component: SearchComponent
     },
     {
-      path: 'result',
+      path: 'result/:id',
       canActivate: [AuthGuard],
       component: ResultComponent
     }

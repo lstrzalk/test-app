@@ -15,7 +15,7 @@ import { AuthModule } from './auth/auth.module';
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +26,7 @@ import { AuthModule } from './auth/auth.module';
     ResultModule
   ],
   providers: [AuthGuard, AuthGuardService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(router: Router) {

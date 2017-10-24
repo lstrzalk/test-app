@@ -1,6 +1,7 @@
 <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">
   <div class="form-group">
     <input type="text" formControlName="login" name = "login" ngModel>
+    <div [hidden] = "loginForm.controls['login'].valid || loginForm.controls['login'].pristine">Invalid</div>
   </div>
-  <button>Submit</button>
+  <button [disabled]="!loginForm.valid">Submit</button>
 </form>
