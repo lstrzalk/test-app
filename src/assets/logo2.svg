@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 210 297"
+   height="297mm"
+   width="210mm">
+  <defs
+     id="defs2">
+    <linearGradient
+       osb:paint="solid"
+       id="linearGradient4545">
+      <stop
+         id="stop4543"
+         offset="0"
+         style="stop-color:#920000;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       osb:paint="solid"
+       id="linearGradient4539">
+      <stop
+         id="stop4537"
+         offset="0"
+         style="stop-color:#3e454c;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4533">
+      <stop
+         id="stop4531"
+         offset="0"
+         style="stop-color:#630000;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       gradientTransform="matrix(0.97888543,0,0,0.72939641,72.253222,38.535566)"
+       gradientUnits="userSpaceOnUse"
+       y2="113.08821"
+       x2="91.726074"
+       y1="113.08821"
+       x1="22.405247"
+       id="linearGradient4547"
+       xlink:href="#linearGradient4539" />
+  </defs>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1">
+    <rect
+       style="fill:url(#linearGradient4547);fill-opacity:1;stroke:#ff7f66;stroke-width:1.3414098;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       y="96.319489"
+       x="94.962379"
+       height="49.404449"
+       width="66.303169"
+       id="rect30" />
+    <g
+       transform="matrix(3.2901404,0,0,3.2901404,96.332512,-840.14867)"
+       id="layer1-7">
+      <path
+         id="path5110"
+         d="m 0.23761806,296.33188 4.73142404,-8.21478 4.0380473,6.90235"
+         style="fill:none;stroke:#2185c5;stroke-width:0.28145963;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+      <path
+         id="path5112"
+         d="m 8.2928122,293.79854 1.9186768,-3.33431 3.390174,5.86765"
+         style="fill:none;stroke:#2185c5;stroke-width:0.28145963;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+      <path
+         id="path5114"
+         d="m 11.619067,292.42012 2.45882,-4.30298 4.768622,8.21474"
+         style="fill:none;stroke:#7ecefd;stroke-width:0.28145963;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+      <path
+         id="path5136"
+         d="m 12.028856,292.42013 2.049031,-1.19218 2.069426,1.19218"
+         style="fill:none;stroke:#7ecefd;stroke-width:0.28145963;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+    </g>
+  </g>
+</svg>

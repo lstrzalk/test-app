@@ -1,5 +1,5 @@
 <input #search type="text" (keyup) = "getAutocomplete(search.value, $event)" (keyup.enter)="searchFun(search.value, '', '', '', '', '', '')">
 <button (click) = "searchFun(search.value)">search</button>
 <ng-container *ngIf = "videos.length > 0">
-    <a *ngFor = "let video of videos" [routerLink]="['/result', video.id.videoId]">{{video.snippet.title}}</a>
+    <a *ngFor = "let video of videos" [routerLink]="['/viewer/result', video.id.videoId]">{{video.snippet.title}}</a>
 </ng-container>

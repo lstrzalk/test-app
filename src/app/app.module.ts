@@ -3,27 +3,23 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { SearchComponent } from './search/search.component';
 import { Router } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import { SearchModule } from './search/search.module';
-import { ResultModule } from './result/result.module';
 import { AuthGuard } from './auth-guard.guard';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthModule } from './auth/auth.module';
+import { ViewerModule } from './viewer/viewer.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SearchComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule,
     AuthModule,
-    SearchModule,
-    ResultModule
+    ViewerModule
   ],
   providers: [AuthGuard, AuthGuardService],
   bootstrap: [AppComponent],

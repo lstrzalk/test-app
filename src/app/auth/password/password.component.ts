@@ -26,7 +26,7 @@ export class PasswordComponent implements OnInit {
     if ( p ) { // result from observable if credentials proper
       let redirectURL = this._authGuardService.getRedirectUrl(); // get redirect url if there was one
       if ( !redirectURL ) {
-        this._router.navigate( ['/search'] );
+        this._router.navigate( ['/viewer'] );
       } else {
         this._router.navigate( [redirectURL] );
       }
