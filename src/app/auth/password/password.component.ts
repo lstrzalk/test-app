@@ -11,7 +11,7 @@ import { AuthGuardService } from '../../auth-guard.service';
 export class PasswordComponent implements OnInit {
   loginErr = false;
   loginName: string;
-  loginForm: FormGroup;
+  passwordForm: FormGroup;
   // tslint:disable-next-line:max-line-length
   constructor(private _authGuardService: AuthGuardService, private _router: Router, private _fb: FormBuilder, private _route: ActivatedRoute) {
     this.createForm();
@@ -36,7 +36,7 @@ export class PasswordComponent implements OnInit {
     },
     err => this.loginErr = true)
 
-  createForm = () => this.loginForm = this._fb.group({ // funcion for creating form validation
+  createForm = () => this.passwordForm = this._fb.group({ // funcion for creating form validation
     password: ['', Validators.required],
   })
   submitForm = (value) => { // form submitting

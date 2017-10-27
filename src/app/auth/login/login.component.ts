@@ -10,6 +10,8 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 export class LoginComponent {
   loginErr = false;
   loginForm: FormGroup;
+  inputName = 'login';
+  inputValue = '';
   constructor(private _router: Router, private _fb: FormBuilder) {
     this.createForm();
   }
@@ -19,5 +21,6 @@ export class LoginComponent {
   submitForm = (value) => { // form submitting
     this._router.navigate(['/auth/password'], {queryParams: {login: value.login}});
   }
+  getValue = (value) => this.loginForm = value;
 
 }
