@@ -6,7 +6,7 @@ import { AuthGuardService } from '../../auth-guard.service';
 @Component({
   selector: 'app-password',
   templateUrl: './password.component.html',
-  styleUrls: ['./password.component.scss']
+  styleUrls: ['../auth.component.scss']
 })
 export class PasswordComponent implements OnInit {
   loginErr = false;

@@ -9,10 +9,12 @@ import { AuthGuard } from './auth-guard.guard';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthModule } from './auth/auth.module';
 import { ViewerModule } from './viewer/viewer.module';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,
