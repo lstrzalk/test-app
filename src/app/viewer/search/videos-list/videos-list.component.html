@@ -1,0 +1,17 @@
+<div id="videos-list" [style.height] = "filter ? '30vh' : '50vh'" (scroll) = "onScroll($event)">
+  <div class="video-element" (click) = "goToDetails(video.id)" *ngFor = "let video of videos">
+      <img [src]="video.thumbnails" alt="Video Thumbnail">
+      <div class="info-field">
+          <div class="title">title</div>
+          <div class="value">
+              {{video.title}}
+          </div>
+          <ng-container *ngIf = "showDescription()">
+              <div class="title">description</div>
+              <div class="description">
+                  {{video.description ? video.description : "No description provided"}}
+              </div>
+          </ng-container>
+      </div>
+  </div>
+</div>

@@ -113,121 +113,13 @@
             }
         }
     }
-    .filter-container{
-        margin-top: 10vh;
-        width: 90%;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        align-items: center;
-        box-shadow: 0 0 10px #888888;
-        padding-bottom: 5vh;
-        overflow-y: scroll;
-        .dropdown{
-            width: 10vw;
-            min-width: 300px;
-            position: relative;
-            // @media screen and (max-width: $break-tablet){
-                margin-top: 5vh;
-            // }
+    .filter-holder{
+        @media screen and (max-width: $break-hd){
+            margin-top: 8vh;
         }
     }
-    #videos-list{
-        margin-top: 10vh;
-        width: 90%;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        align-items: center;
-        overflow-y: scroll;
-        .video-element {
-            width: 100%;
-            @media screen and (max-width: $break-mobile){
-                height: 90px
-            }
-            @media screen and (max-width: $break-hd) and (min-width: $break-mobile){
-                height: 180px
-            }
-            @media screen and (min-width: $break-hd){
-                height: 360px
-            }
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-around;
-            align-items: center;
-            margin-top: 5vh;
-            box-shadow: 0 0 10px #888888;
-            padding: 2vh 0 2vh 0;
-            cursor: pointer;
-            &:hover{
-                box-shadow: 0 0 10px magenta;
-            }
-            transition: 200ms ease all; 
-            .info-field{
-                width: 50%;
-                height: 100%;
-                display: flex;
-                display: flex;
-                flex-flow: column nowrap;
-                justify-content: flex-start;
-                align-items: flex-start;
-                font-weight: 700;
-                .title{
-                    color: magenta;
-                    padding-bottom: 1vh;
-                    border-bottom: 1px solid black;
-                    width: 50%;
-                    @media screen and (max-width: $break-mobile){
-                        margin-top: 0.5vh;
-                        font-size: 0.6em;
-                    }
-                    @media screen and (max-width: $break-hd) and (min-width: $break-mobile){
-                        margin-top: 1vh;
-                        font-size: 0.8em;
-                    }
-                    @media screen and (min-width: $break-hd){
-                        margin-top: 5vh;
-                        font-size: 1.2em;
-                    }
-                }
-                .value{
-                    margin-top: 1vh;
-                    margin-left: 1vw;
-                    font-size: 2em;
-                    font-weight: 600;
-                    width: 100%;
-                    color: #888888;
-                    @media screen and (max-width: $break-mobile){
-                        overflow: hidden;
-                        white-space: nowrap;
-                        text-overflow: ellipsis;
-                        font-size: 1em;
-                    }
-                    @media screen and (max-width: $break-hd) and (min-width: $break-mobile){
-                        font-size: 1.3em;
-                    }
-                    @media screen and (min-width: $break-hd){
-                        font-size: 1.6em;
-                    }
-                }
-                .description{
-                    @extend .value;
-                    font-weight: 500;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    @media screen and (max-width: $break-mobile){
-                        font-size: 1em;
-                    }
-                    @media screen and (max-width: $break-hd) and (min-width: $break-mobile){
-                        font-size: 1.25em;
-                    }
-                    @media screen and (min-width: $break-hd){
-                        font-size: 1.5em;
-                    }
-                }
-            }
-        }
+    .videos-holder{
+        width: 100vw;
     }
 }
 .autocomplete-layer {

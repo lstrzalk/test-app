@@ -9,6 +9,8 @@ import { ResultComponent } from './result/result.component';
 import { ResultService } from './result/result.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { FilterComponent } from './search/filter/filter.component';
+import { VideosListComponent } from './search/videos-list/videos-list.component';
 
 @NgModule({
   imports: [
@@ -16,7 +18,7 @@ import { FormsModule } from '@angular/forms';
     JsonpModule,
     RouterModule,
   ],
-  declarations: [ViewerComponent, SearchComponent, ResultComponent],
+  declarations: [ViewerComponent, SearchComponent, ResultComponent, FilterComponent, VideosListComponent],
   providers: [SearchService, AutocompleteService, ResultService]
 })
 export class ViewerModule { }

@@ -30,7 +30,7 @@ export class SearchComponent implements OnInit {
     'q' : ''
   };
   // tslint:disable-next-line:max-line-length
-  constructor(private _searchService: SearchService, private _autocompleteService: AutocompleteService, @Inject(DOCUMENT) private _document: Document, private _router: Router, private _route: ActivatedRoute) {
+  constructor(private _searchService: SearchService, private _autocompleteService: AutocompleteService, @Inject(DOCUMENT) private _document: Document, private _route: ActivatedRoute) {
     if ( this._route.queryParams['q'] ) {
       this.filtersMap.q = this._route.queryParams['q'];
       this.searchFun();
@@ -61,14 +61,4 @@ export class SearchComponent implements OnInit {
     this.filtersMap.q = a;
     this.hideAutocomplete();
   }
-  onScroll = (e) => {
-    console.log(e.path[0].scrollHeight);
-    console.log(e.path[0].scrollTop);
-    console.log(Number(e.path[0].scrollTop / e.path[0].scrollHeight).toFixed(2));
-    if ( parseFloat(Number(e.path[0].scrollTop / e.path[0].scrollHeight).toFixed(2)) > this.loadOffset ) {
-      this.getNextPage();
-    }
-  }
-  goToDetails = (id) => this._router.navigate(['/viewer/result', id]);
-  showDescription = () => window.screen.width > 480;
 }
