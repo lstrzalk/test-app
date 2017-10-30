@@ -1,4 +1,5 @@
 @import '../../../../styles.scss';
+@import '../../../../colors.scss';
 #videos-list{
     margin: 10vh 5% 0 5%;
     width: 90%;
@@ -24,11 +25,11 @@
         justify-content: space-around;
         align-items: center;
         margin-top: 5vh;
-        box-shadow: 0 0 10px #888888;
+        box-shadow: 0 0 10px $darkGrey;
         padding: 2vh 0 2vh 0;
         cursor: pointer;
         &:hover{
-            box-shadow: 0 0 10px magenta;
+            box-shadow: 0 0 10px $darkBlue;
         }
         transition: 200ms ease all; 
         .info-field{
@@ -41,9 +42,9 @@
             align-items: flex-start;
             font-weight: 700;
             .title{
-                color: magenta;
+                color: $darkBlue;
                 padding-bottom: 1vh;
-                border-bottom: 1px solid black;
+                border-bottom: 1px solid $darkGrey;
                 width: 50%;
                 @media screen and (max-width: $break-mobile){
                     margin-top: 0.5vh;
@@ -64,7 +65,7 @@
                 font-size: 2em;
                 font-weight: 600;
                 width: 100%;
-                color: #888888;
+                color: $darkGrey;
                 @media screen and (max-width: $break-mobile){
                     overflow: hidden;
                     white-space: nowrap;

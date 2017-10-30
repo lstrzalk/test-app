@@ -3,7 +3,7 @@
         <div class="search-input-holder">
             <input class = "search-input" #search [(ngModel)] = "filtersMap.q" type="text" name = "search" (keyup) = "getAutocomplete(search.value, $event)" (keyup.enter)="searchFun()" required>
             <span class="bar highlight-bar"></span>
-            <label class = "search-label" [ngClass]="{'label-top': filtersMap.q.length > 0, 'search-label': filtersMap.q.length > 0}">search</label>
+            <label class = "search-label" [ngClass]="{'label-top': filtersMap.q.length > 0}">search</label>
         </div>
         <div class="buttons-wrapper">
 
