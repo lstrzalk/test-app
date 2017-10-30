@@ -7,43 +7,64 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class SearchService {
   baseURL = 'https://www.googleapis.com/youtube/v3/search'; // https://developers.google.com/youtube/v3/docs/search/list
-  token = 'AIzaSyB1zsdBORbUDePms4PJRllZ1pAqoFCqyMI';
+  token = 'AIzaSyC1NKGYNAOxXa_TVbjZcCISIHWNTizafwM';
 
   constructor(private _http: Http) { }
 
   search = (filtersMap) => {
     let params: URLSearchParams = new URLSearchParams();
-    // params.set('q', keyword); // query - add to filering and check if not empty
-    // params.set('part', 'snippet'); // neccessary
-    // params.set('maxResults', '50'); // max results per request
-    params.set('key', this.token); // API key
-    // params.set('type', 'video'); // type, another events and playlists
-
-    /* Filtering */
-    console.log(filtersMap.keys());
-    filtersMap.forEach((value, key) => {
-      if ( value  ) {
-        params.set(key, value);
+    params.set('key', this.token);
+    for(let key of Object.keys(filtersMap)){
+      if ( filtersMap[key]  ) {
+        if ( key.includes('published') ) {
+          params.set(key, new Date(filtersMap[key]).toISOString());
+        } else {
+          params.set(key, filtersMap[key]);
+        }
       }
-    });
+    }
 
     return this._http.get(this.baseURL, {
       search: params
     }).map(res => res.json())
+      .map(this.parseVideos)
       .catch(err => Observable.throw(err));
   }
 
-nextPage = (token) => {
+nextPage = (nextPageToken, filtersMap) => {
   let params: URLSearchParams = new URLSearchParams();
-  params.set('pageToken', token);
-  params.set('part', 'snippet');
-  params.set('maxResults', '50');
+  params.set('pageToken', nextPageToken);
+  console.log(nextPageToken)
+  for(let key of Object.keys(filtersMap)){
+    if ( filtersMap[key]  ) {
+      if ( key.includes('published') ) {
+        params.set(key, new Date(filtersMap[key]).toISOString());
+      } else {
+        params.set(key, filtersMap[key]);
+      }
+    }
+  }
   params.set('key', this.token);
   return this._http.get(this.baseURL, {
     search: params
   }).map(res => res.json())
+    .map(this.parseVideos)
     .catch(err => Observable.throw(err));
 }
 
+parseVideos = (videos) => {
+  for ( let i = 0; i < videos.items.length; i++) {
+    videos.items[i].snippet['id'] = videos.items[i].id.videoId;
+    videos.items[i] = videos.items[i].snippet;
+    if ( window.screen.width < 480 ) {
+      videos.items[i].thumbnails = videos.items[i].thumbnails.default.url;
+    } else if ( window.screen.width >= 480 && window.screen.width < 1080 ) {
+      videos.items[i].thumbnails = videos.items[i].thumbnails.medium.url;
+    } else {
+      videos.items[i].thumbnails = videos.items[i].thumbnails.high.url;
+    }
+  }
+  return videos;
+}
 
 }

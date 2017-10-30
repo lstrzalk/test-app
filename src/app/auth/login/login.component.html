@@ -1,9 +1,9 @@
 <form class="auth-form" [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">
   <div class="form-group">
-    <input type="text" formControlName="login" name = "login" ngModel required>
+    <input type="text" formControlName="login" name = "login" ngModel required autofocus>
     <span class="bar"></span>
     <label>login</label>
   </div>
-  <div class = "error" [hidden] = "loginForm.controls['login'].valid || loginForm.controls['login'].pristine">Invalid</div>
+  <div class = "error" [hidden] = "loginForm.controls['login'].valid || loginForm.controls['login'].pristine">Password can not be empty</div>
   <button class = "custom-btn" [disabled]="!loginForm.valid">Submit</button>
 </form>

@@ -10,6 +10,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { AuthModule } from './auth/auth.module';
 import { ViewerModule } from './viewer/viewer.module';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     HttpModule,
     AppRoutingModule,
     AuthModule,
-    ViewerModule
+    ViewerModule,
+    FormsModule,
   ],
   providers: [AuthGuard, AuthGuardService],
   bootstrap: [AppComponent],

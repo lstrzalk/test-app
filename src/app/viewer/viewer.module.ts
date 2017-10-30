@@ -8,10 +8,11 @@ import { SearchComponent } from './search/search.component';
 import { ResultComponent } from './result/result.component';
 import { ResultService } from './result/result.service';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule, FormsModule,
     JsonpModule,
     RouterModule,
   ],

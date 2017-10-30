@@ -1,4 +1,15 @@
-<p *ngIf = "videoDetails">
-  {{videoDetails}}
-</p>
-<iframe *ngIf = "videoDetails" width="420" height="315" [src]="prepareUrl()"></iframe>
+<div *ngIf = "videoDetails" class="result-container">
+  <div class="video-container">
+    <iframe *ngIf = "videoDetails" class = "video" [src]="prepareUrl()"></iframe>
+  </div>
+  <div class="title-container">
+    <div class="title">title</div>
+    <div class="value">{{videoDetails.title}}</div>
+    <div class="title">description</div>
+    <div class="description">{{videoDetails.description}}</div>
+    <div class="title">tags</div>
+    <div class="tags-container">
+      <div class="tag" *ngFor = "let tag of videoDetails.tags">{{tag}}</div>
+    </div>
+  </div>
+</div>

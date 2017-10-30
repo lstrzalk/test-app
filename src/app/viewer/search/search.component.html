@@ -1,5 +1,121 @@
-<input #search type="text" (keyup) = "getAutocomplete(search.value, $event)" (keyup.enter)="searchFun(search.value)">
-<button (click) = "searchFun(search.value)">search</button>
-<ng-container *ngIf = "videos.length > 0">
-    <a *ngFor = "let video of videos" [routerLink]="['/viewer/result', video.id.videoId]">{{video.snippet.title}}</a>
-</ng-container>
+<div class="search-container">
+    <div class="search-holder">
+        <div class="search-input-holder">
+            <input class = "search-input" #search [(ngModel)] = "filtersMap.q" type="text" name = "search" (keyup) = "getAutocomplete(search.value, $event)" (keyup.enter)="searchFun()" required>
+            <span class="bar highlight-bar"></span>
+            <label class = "search-label" [ngClass]="{'label-top': filtersMap.q.length > 0, 'search-label': filtersMap.q.length > 0}">search</label>
+        </div>
+        <div class="buttons-wrapper">
+
+        
+            <button class = "custom-btn search-buttons" (click) = "filterFun()">
+                <svg class="icon-filter" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/>
+                </svg>
+                filter
+            </button>
+            <button class = "custom-btn search-buttons" (click) = "searchFun()">
+                <svg class="icon-search" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                </svg>    
+                search
+            </button>
+        </div>
+    </div>
+    <div class="autocomplete-holder">
+        <div *ngIf = "autocompleteArray.length && showAutocomplete" class="autocomplete">
+            <div class="autocomplete-result" (click) = "choosenFromAutocomplete(a[0])" *ngFor = "let a of autocompleteArray">
+                {{a[0]}}
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf = "filter" class="filter-container">
+        <div class="dropdown">
+            <select [(ngModel)]="filtersMap.order" class="input-custom" required>
+                <option [value]="''"></option>
+                <option [value]="'date'">date</option>
+                <option [value]="'rating'">rating</option>
+                <option [value]="'relevance'">relevance</option>
+                <option [value]="'title'">title</option>
+                <option [value]="'viewCount'">view count</option>
+            </select>
+            <span class="bar highlight-bar"></span>
+            <label class = "search-label">order</label>
+        </div>
+        <div class="dropdown">
+            <select [(ngModel)]="filtersMap.videoDefinition" class="input-custom" required>
+                <option [value]="''"></option>
+                <option [value]="'any'">any</option>
+                <option [value]="'standard'">standard</option>
+                <option [value]="'high'">high</option>
+            </select>
+            <span class="bar highlight-bar"></span>
+            <label class = "search-label">video definition</label>
+        </div>
+        <div class="dropdown">
+            <select [(ngModel)]="filtersMap.videoDimension" class="input-custom" required>
+                <option [value]="''"></option>
+                <option [value]="'any'">any</option>
+                <option [value]="'2d'">2 D</option>
+                <option [value]="'3d'">3 D</option>
+            </select>
+            <span class="bar highlight-bar"></span>
+            <label class = "search-label">video dimension</label>
+        </div>
+        <div class="dropdown">
+            <select [(ngModel)]="filtersMap.videoType" class="input-custom" required>
+                <option [value]=""></option>
+                <option [value]="'any'">any</option>
+                <option [value]="'episode'">episode</option>
+                <option [value]="'movie'">movie</option>
+            </select>
+            <span class="bar highlight-bar"></span>
+            <label class = "search-label">video type</label>
+        </div>
+        <div class="dropdown">
+            <select [(ngModel)]="filtersMap.videoDuration" class="input-custom" required>
+                <option [value]="''"></option>
+                <option [value]="'any'">any</option>
+                <option [value]="'long'">long</option>
+                <option [value]="'medium'">medium</option>
+                <option [value]="'short'">short</option>
+            </select>
+            <span class="bar highlight-bar"></span>
+            <label class = "search-label">video duration</label>
+        </div>
+        <div class="dropdown">
+            <input type="date" [(ngModel)]="filtersMap.publishedAfter" >
+            <span class="bar highlight-bar"></span>
+            <label class = "search-label">published after</label>
+        </div>
+        <div class="dropdown">
+            <input type="date" [(ngModel)]="filtersMap.publishedBefore" >
+            <span class="bar highlight-bar"></span>
+            <label class = "search-label">published before</label>
+        </div>
+    </div>
+    <div id="videos-list" [style.height] = "filter ? '30vh' : '50vh'" *ngIf = "videos.length" (scroll) = "onScroll($event)">
+        <div class="video-element" (click) = "goToDetails(video.id)" *ngFor = "let video of videos">
+            <img [src]="video.thumbnails" alt="Video Thumbnail">
+            <div class="info-field">
+                <div class="title">title</div>
+                <div class="value">
+                    {{video.title}}
+                </div>
+                <ng-container *ngIf = "showDescription()">
+                    <div class="title">description</div>
+                    <div class="description">
+                        {{video.description ? video.description : "No description provided"}}
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <!-- <ng-container >
+        <a *ngFor = "let video of videos" [routerLink]="['/viewer/result', video.id.videoId]">{{video.snippet.title}}</a>
+    </ng-container> -->
+</div>
+<div *ngIf = "autocompleteArray.length && showAutocomplete" (click) = "hideAutocomplete()" class="autocomplete-layer"></div>

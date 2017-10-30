@@ -37,7 +37,7 @@
         }
     }
     .icons-holder{
-        width: 21vh;
+        width: 14vh;
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-end;
@@ -57,10 +57,6 @@
             &:hover{
                 fill:yellow;
             }
-        }
-        .icon-filter{
-            @extend .icon-search;
-            background-color: orangered;
         }
         .icon-close{
             @extend .icon-search;
